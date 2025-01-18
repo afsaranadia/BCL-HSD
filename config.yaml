@@ -1,0 +1,31 @@
+project:
+  name: BCL-HSD
+  description: "Bangla Hate Speech Detection using BERT-CNN-BiLSTM"
+
+paths:
+  data_raw: "data/raw/"
+  data_processed: "data/processed/"
+  model_checkpoints: "models/checkpoints/"
+  logs: "outputs/logs/"
+  plots: "outputs/plots/"
+
+training:
+  batch_size: 64
+  epochs: 10
+  learning_rate: 5e-5
+  max_seq_length: 128
+  validation_split: 0.2
+  early_stopping: true
+
+model:
+  base_model: "csebuetnlp/banglabert"
+  cnn_filters: 64
+  lstm_units: 128
+  dropout_rate: 0.3
+
+metrics:
+  - accuracy
+  - f1
+  - precision
+  - recall
+  - confusion matrix
